@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!accepted) {
     // user hasn't accepted terms
     timer = setInterval(goToTerms, 1000);
-    $("accept").addEventListener("click", acceptTerms);
+    ////////////////Added "#" to accept////////////////////////
+    $("#accept").addEventListener("click", acceptTerms);
   } else {
     // hide terms section
     $("#terms").setAttribute("class", "hidden");
