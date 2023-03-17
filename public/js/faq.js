@@ -9,7 +9,8 @@ let counter = 10;
 
 const goToTerms = () => {
   //Count down from 10, if above 0 update seconds text, if at 0, send to the terms page
-  counter - 1;
+  /////////////added = to "counter - 1"///////////////////////////////////////////////////////////////////////
+  counter -= 1;
   if (counter <= 0) {
     window.location ="https://" + window.location.host + "/terms";
   } else {
@@ -25,8 +26,9 @@ const acceptTerms = () => {
 };
 
 // the event handler for the click event of each h2 element
+//////////added const infront of h2//////////////////////////////////////////////////////////////////////////
 const toggle = (evt) => {
-  h2 = evt.currentTarget; // get the clicked h2 element
+  const h2 = evt.currentTarget; // get the clicked h2 element
   const div = h2.nextElementSibling; // div = h2's sibling div
 
   h2.classList.toggle("minus");
@@ -42,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!accepted) {
     // user hasn't accepted terms
-    timer = setInterval(goToTerms, 1);
-    ////////////////Added "#" to accept////////////////////////
+    timer = setInterval(goToTerms, 1000);
+    ////////////////Added "#" to accept//////////////////////////////////////////////////////////////////////////
     $("#accept").addEventListener("click", acceptTerms);
   } else {
     // hide terms section
@@ -51,13 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // get the h2 tags
-  const h2Elements = faqs.querySelectorAll("#faqs h2");
+  ////////////changed "faq.querySelectorAll" to "document.querySelectorAll"///////////////////////////////////////
+  const h2Elements = document.querySelectorAll("#faqs h2");
 
   // attach event handler for each h2 tag
-  //////added "s" to h2elements
-  for (let h2Elements of h2Elements) {
+  for (let h2Element of h2Elements) {
     h2element.addEventListener("click", toggle);
   }
-
-  h2Elements[0].firstChild.Focus();
+////changed Focus to focus/////////////////////////////////////////////////////////////////////////////////////////
+  h2Elements[0].firstChild.focus();
 });
