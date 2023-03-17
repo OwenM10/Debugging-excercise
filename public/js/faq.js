@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!accepted) {
     // user hasn't accepted terms
-    timer = setInterval(goToTerms, 1000);
+    timer = setInterval(goToTerms, 1);
     ////////////////Added "#" to accept////////////////////////
     $("#accept").addEventListener("click", acceptTerms);
   } else {
@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const h2Elements = faqs.querySelectorAll("#faqs h2");
 
   // attach event handler for each h2 tag
-  for (let h2Element of h2Elements) {
+  //////added "s" to h2elements
+  for (let h2Elements of h2Elements) {
     h2element.addEventListener("click", toggle);
   }
 
